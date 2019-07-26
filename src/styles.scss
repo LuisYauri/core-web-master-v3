@@ -1,3 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import "theme/styles/scss/shards-dashboards";
 @import "theme/styles/extras.1.1.0.min.css";
+
+// MODAL AN SWEETALERT
+.modal {
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.swal2-container{
+  z-index: 10000 !important;
+}
+
+.swal2-container.swal2-shown{
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.ngx-pagination .current {
+  background-color: $primary !important;
+  border-radius: 5px;
+}

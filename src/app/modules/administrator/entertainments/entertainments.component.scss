@@ -1,8 +1,9 @@
-.button-entertainment-box{
+.button-entertainment-box {
   display: flex;
   margin: 12px 0;
   justify-content: flex-end;
-  &--expand{
+
+  &--expand {
     width: 50px;
     height: 50px;
     text-align: center;
@@ -11,7 +12,8 @@
     line-height: 1.42;
     border-radius: 25px;
   }
-  &--icon{
+
+  &--icon {
     font-size: 15px;
   }
 }
@@ -19,12 +21,40 @@
 .accion-button {
   display: flex;
   justify-content: center;
-  &--margin{
+
+  &--margin {
     margin: 0 5px;
   }
-  &--icon{
+
+  &--icon {
     color: #fff;
     font-size: 15px;
   }
 }
+
+.table-box {
+  height: 365px;
+  overflow-x: auto;
+  &--title{
+    width: 25%;
+  }
+}
+
+.pagination-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  @media (max-width: 575px) {
+    justify-content: center;
+  }
+
+  &--pag {
+    display: flex;
+    justify-content: center;
+    padding-right: 30px;
+    margin-top: 15px;
+  }
+}
+
+// PAGINATION
 

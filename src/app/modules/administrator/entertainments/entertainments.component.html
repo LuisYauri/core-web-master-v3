@@ -6,15 +6,15 @@
       <div class="card-header border-bottom">
         <h6 class="m-0">{{titleTable}}</h6>
       </div>
-      <div class="card-body p-0 pb-3 text-center">
+      <div class="card-body p-0 pb-3 text-center table-box">
         <table class="table mb-0">
           <thead class="bg-light">
           <tr>
-            <th scope="col" class="border-0" *ngFor="let nameTable of listNamesTable">{{nameTable}}</th>
+            <th scope="col" class="border-0 table-box--title" *ngFor="let nameTable of listNamesTable">{{nameTable}}</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let account of listEntertainments | paginate: { itemsPerPage: 4, currentPage: pageActual}">
+          <tr *ngFor="let account of listEntertainments | paginate: { itemsPerPage: 5, currentPage: actualPage}">
             <td>{{account.name}}</td>
             <td>{{account.username}}</td>
             <td>{{account.password}}</td>
@@ -31,7 +31,9 @@
           </tr>
           </tbody>
         </table>
-        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+      </div>
+      <div class="pagination-box">
+        <pagination-controls class="pagination-box--pag" (pageChange)="actualPage = $event" previousLabel="Anterior" nextLabel="Siguiente" responsive="true" ></pagination-controls>
       </div>
     </div>
   </div>
@@ -47,19 +49,19 @@
 
 <!-- Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalTitle"
-     aria-hidden="true">
+     aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addModalTitle">{{titleAddModal}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="clearVariables()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
           <label for="titulo">Título</label>
-          <input type="text" class="form-control" id="titulo" placeholder="platzi" [(ngModel)]="sendDataAddModal.name">
+          <input type="text" class="form-control" id="titulo" placeholder="doapps" [(ngModel)]="sendDataAddModal.name">
         </div>
         <div class="form-group">
           <label for="titulo">Cuenta</label>
@@ -73,7 +75,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clearVariables()">Cerrar</button>
         <button type="button" class="btn btn-primary" (click)="setAddAccount()">Agregar</button>
       </div>
     </div>
@@ -82,7 +84,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalTitle"
-     aria-hidden="true">
+     aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -94,7 +96,7 @@
       <div class="modal-body">
         <div class="form-group">
           <label for="tituloEdit">Título</label>
-          <input type="text" class="form-control" id="tituloEdit" placeholder="platzi" [(ngModel)]="dataEditModal.name">
+          <input type="text" class="form-control" id="tituloEdit" placeholder="doapps" [(ngModel)]="dataEditModal.name">
         </div>
         <div class="form-group">
           <label for="titulo">Cuenta</label>
