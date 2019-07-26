@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Main Sidebar -->
+    <app-sidebar [itemModules]="itemModules"></app-sidebar>
+    <!-- End Main Sidebar -->
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+      <app-navbar></app-navbar>
+      <!-- / .main-navbar -->
+      <div class="main-content-container container-fluid px-4">
+      <router-outlet></router-outlet>
+      </div>
+      <app-footer></app-footer>
+    </main>
+  </div>
+</div>
+

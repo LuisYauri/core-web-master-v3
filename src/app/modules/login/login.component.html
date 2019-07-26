@@ -1,0 +1,25 @@
+<div class="login">
+  <div class="card login-c">
+    <div class="card-body login-card">
+      <div class="login-card__logo">
+        <img class="login-card__logo--center" src="../../../assets/images/shards-dashboards-logo.svg" alt="">
+      </div>
+      <h5 class="card-title login-card__title">Iniciar Sesión</h5>
+      <div class="login-card__inputs">
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label for="email">Correo electrónico</label>
+            <input type="text" class="form-control" id="email" placeholder="doapps@doapps.com" [(ngModel)]="user.email" >
+          </div>
+          <div class="form-group col-12">
+            <label for="pass">Contraseña</label>
+            <input type="text" class="form-control" id="pass" placeholder="contra$eñ@2019" [(ngModel)]="user.password">
+          </div>
+        </div>
+      </div>
+      <div class="login-card__button">
+        <button type="button" class="btn btn-primary login-card__button--sesion" (click)="loginAuth()">Iniciar Sesión</button>
+      </div>
+    </div>
+  </div>
+</div>

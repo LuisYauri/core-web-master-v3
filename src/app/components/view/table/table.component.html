@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col">
+    <div class="card card-small mb-4">
+      <div class="card-header border-bottom">
+        <h6 class="m-0">{{titleTable}}</h6>
+      </div>
+      <div class="card-body p-0 pb-3 text-center">
+        <table class="table mb-0">
+          <thead class="bg-light">
+          <tr>
+            <th scope="col" class="border-0" *ngFor="let nameTable of listNameTables">{{nameTable}}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let account of listAccountsTable">
+            <td *ngFor="let acc of account">{{acc}}</td>
+            <td *ngIf="listActions != null" class="accion-button">
+              <div *ngFor="let accion of listActions">
+                <div *ngIf="accion === 'fas fa-edit'">
+                  <button type="button" class="btn btn-primary accion-button--margin">
+                    <i class="{{accion}} accion-button--icon"></i>
+                  </button>
+                </div>
+                <div *ngIf="accion === 'fas fa-trash'">
+                  <button type="button" class="btn btn-danger accion-button--margin">
+                    <i class="{{accion}} accion-button--icon"></i>
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

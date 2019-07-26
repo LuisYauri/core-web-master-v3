@@ -1,0 +1,119 @@
+<app-header [itemsHeader]="itemsHeader"></app-header>
+<!--Table-->
+<div class="row">
+  <div class="col">
+    <div class="card card-small mb-4">
+      <div class="card-header border-bottom">
+        <h6 class="m-0">{{titleTable}}</h6>
+      </div>
+      <div class="card-body p-0 pb-3 text-center">
+        <table class="table mb-0">
+          <thead class="bg-light">
+          <tr>
+            <th scope="col" class="border-0" *ngFor="let nameTable of listNamesTable">{{nameTable}}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let account of listEntertainments | paginate: { itemsPerPage: 4, currentPage: pageActual}">
+            <td>{{account.name}}</td>
+            <td>{{account.username}}</td>
+            <td>{{account.password}}</td>
+            <td class="accion-button">
+              <button type="button" class="btn btn-primary accion-button--margin" (click)="editAccount(account)"
+                      data-toggle="modal" data-target="#editModal">
+                <i class="fas fa-edit accion-button--icon"></i>
+              </button>
+              <button type="button" class="btn btn-danger accion-button--margin"
+                      (click)="sweetAlertQuestion(account.id)">
+                <i class="fas fa-trash accion-button--icon"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col button-entertainment-box">
+    <button type="button" class="btn btn-primary button-entertainment-box--expand" data-toggle="modal"
+            data-target="#addModal"><i class="fas fa-plus button-entertainment-box--icon"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalTitle"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalTitle">{{titleAddModal}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="titulo">Título</label>
+          <input type="text" class="form-control" id="titulo" placeholder="platzi" [(ngModel)]="sendDataAddModal.name">
+        </div>
+        <div class="form-group">
+          <label for="titulo">Cuenta</label>
+          <input type="text" class="form-control" id="cuenta" placeholder="doapps@doapps.com"
+                 [(ngModel)]="sendDataAddModal.username">
+        </div>
+        <div class="form-group">
+          <label for="titulo">Contraseña</label>
+          <input type="text" class="form-control" id="contraseña" placeholder="contra$eñ@2019"
+                 [(ngModel)]="sendDataAddModal.password">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="setAddAccount()">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalTitle"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalTitle">{{titleEditModal}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="tituloEdit">Título</label>
+          <input type="text" class="form-control" id="tituloEdit" placeholder="platzi" [(ngModel)]="dataEditModal.name">
+        </div>
+        <div class="form-group">
+          <label for="titulo">Cuenta</label>
+          <input type="text" class="form-control" id="cuentaEdit" placeholder="doapps@doapps.com"
+                 [(ngModel)]="dataEditModal.username">
+        </div>
+        <div class="form-group">
+          <label for="titulo">Contraseña</label>
+          <input type="text" class="form-control" id="contraseñaEdit" placeholder="contra$eñ@2019"
+                 [(ngModel)]="dataEditModal.password">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="setEditAccount()">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

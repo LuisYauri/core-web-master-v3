@@ -1,0 +1,11 @@
+.accion-button {
+  display: flex;
+  justify-content: center;
+  &--margin{
+    margin: 0 5px;
+  }
+  &--icon{
+    color: #fff;
+    font-size: 15px;
+  }
+}

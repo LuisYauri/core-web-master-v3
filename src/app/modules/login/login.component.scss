@@ -1,0 +1,44 @@
+.login {
+  height: 100%;
+  margin: 0;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-c{
+  width: 355px;
+}
+
+.login-card {
+
+  &__title {
+    text-align: center;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+
+    &--center {
+      height: 60px;
+    }
+  }
+
+  &__inputs {
+    width: 100%;
+
+    &--margin {
+      margin: 12px 0px;
+    }
+  }
+
+  &__button {
+
+    &--sesion {
+      width: 100%;
+    }
+  }
+}
